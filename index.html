@@ -54,7 +54,34 @@
         <![endif]-->
 
     </head>
-	
+
+	<!-- 메뉴 바 -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#navbar-menu ul li a').click(function(event) {
+				event.preventDefault(); // Prevent the default link behavior
+				
+				// Remove 'active' class from all links
+				$('#navbar-menu ul li').removeClass('active');
+				
+				// Add 'active' class to the clicked link
+				$(this).parent().addClass('active');
+				
+				// Get the target article to display
+				var target = $(this).data('target');
+				
+				// Hide all articles
+				$('.content-section').hide();
+				
+				// Show the target article
+				$(target).show();
+
+				$('html, body').animate({ scrollTop: 0 }, 'fast');
+			});
+		});
+	</script>
+
 	<body>
 		<!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -127,16 +154,17 @@
 			            <!-- End Header Navigation -->
 
 			            <!-- Collect the nav links, forms, and other content for toggling -->
-			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-			                    <li class=" scroll active"><a href="#service">서비스 소개</a></li>
-			                    <li class="scroll"><a href="#my_time_table">나의 시간표</a></li>
-								<li class="scroll"><a href="#write_time_table">시간표 짜기</a></li>
-			                    <li class="scroll"><a href="#gpa_calculator">학점 계산기</a></li>
-			                    <li class="scroll"><a href="#to_graduate">나의 졸업요건</a></li>
-			                    <li class="scroll"><a href="#advise">여러분의 목소리</a></li>			                    
-			                </ul><!--/.nav -->
-			            </div><!-- /.navbar-collapse -->
+						<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+							<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+								<li class="scroll active"><a href="#" data-target="#service">서비스 소개</a></li>
+								<li class="scroll"><a href="#" data-target="#my_time_table">나의 시간표</a></li>
+								<li class="scroll"><a href="#" data-target="#write_time_table">시간표 짜기</a></li>
+								<li class="scroll"><a href="#" data-target="#gpa_calculator">학점 계산기</a></li>
+								<li class="scroll"><a href="#" data-target="#to_graduate">나의 졸업요건</a></li>
+								<li class="scroll"><a href="#" data-target="#advise">여러분의 목소리</a></li>
+							</ul>
+						</div><!--/.nav -->
+						</div><!-- /.navbar-collapse -->	
 			        </div><!--/.container-->
 			    </nav><!--/nav-->
 			    <!-- End Navigation -->
@@ -146,412 +174,650 @@
 		</section><!-- /.top-area-->
 		<!-- top-area End -->
 
-		<!--welcome-hero start -->
-		<section id="home" class="welcome-hero">
-			<div class="container">
-				<div class="welcome-hero-txt">
-					<h2>공부는 1등급, <br>시간표는 9등급?</h2>
-					<p>아직도 휴학 안 하고 버티는게 용하군요!
-					</p>
-				</div>
-			</div>
-
-		</section><!--/.welcome-hero-->
-		<!--welcome-hero end -->
-
-		<!--list-topics start -->
-		<section id="list-topics" class="list-topics">
-			<div class="container">
-				<div class="list-topics-content">
-					<ul>
-						<li>
-							<div class="single-list-topics-content">
-								<div class="single-list-topics-icon">
-									<i class="flaticon-restaurant"></i>
-								</div>
-								<h2><a href="#"><br>어라? 혹시 남 일 같지 않나요? 진짜요?</a></h2>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div><!--/.container-->
-
-		</section><!--/.list-topics-->
-		<!--list-topics end-->
-
-		<!--works start -->
-		<section id="works" class="works">
-			<div class="container">
-				<div class="section-header">
-					<h2><br><br><br>
-						그런 당신을 위해 준비했습니다!</h2>
-					<p>에브리타임을 능가할 신개념 시간표 서비스!</p>
-				</div><!--/.section-header-->
-				<div class="works-content">
-					<div class="row">
-						<div class="col-md-4 col-sm-6">
-							<div class="single-how-works">
-								<div class="single-how-works-icon">
-									<i class="flaticon-lightbulb-idea"></i>
-								</div>
-								<h2><a href="#">일확천금 토토왕</a></h2>
-								<p>
-									마일리지 컷, 다 띄워줄게요. <br> 강의실 정원까지 보여주면 더 좋겠죠?
-								</p>
-								<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-									연세포탈 완벽 연동
-								</button>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<div class="single-how-works">
-								<div class="single-how-works-icon">
-									<i class="flaticon-networking"></i>
-								</div>
-								<h2><a href="#">꿀강 다 내꺼</span></a></h2>
-								<p>
-									꿀강을 찾아담고, 헬강에 고통받는 친구들을 <br>마구마구 놀려줘요. 
-								</p>
-								<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-									에브리타임 강의평 완벽 연동
-								</button>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<div class="single-how-works">
-								<div class="single-how-works-icon">
-									<i class="flaticon-location-on-road"></i>
-								</div>
-								<h2><a href="#">자고로 양반은 뛰지 않는 법</a></h2>
-								<p>
-									수업 끝나자마자 뛰지 마세요. <br>
-									건물 간 이동 시간까지 알려줄게요.
-								</p>
-								<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-									카카오맵 완벽 연동
-								</button>
-							</div>
-						</div>
+		<!--==================================================================================================================-->
+		<!-- 시작 페이지 -->
+		<article id="service" class="content-section">
+			<!--welcome-hero start -->
+			<section id="home" class="welcome-hero">
+				<div class="container">
+					<div class="welcome-hero-txt">
+						<h2>공부는 1등급, <br>시간표는 9등급?</h2>
+						<p>아직도 휴학 안 하고 버티는게 용하군요!
+						</p>
 					</div>
 				</div>
-			</div><!--/.container-->
-		
-		</section><!--/.works-->
-		<!--works end -->	
 
-		<!--blog start -->
-		<section id="blog" class="blog" >
-			<div class="container">
-				<div class="section-header">
-					<h2>어떤 기능이 있는지 궁금하시죠?</h2>
-					<p>직관적인 UI. 무한한 편리함.  <br>
-					(예시 이미지)</p>
-				</div><!--/.section-header-->
-				<div class="blog-content">
-					<div class="row">
-						<div class="col-md-6 col-sm-6">
-							<div class="single-blog-item">
-								<div class="single-blog-item-img">
-									<img src="assets/images/blog/b1.jpg" alt="blog image">
+			</section><!--/.welcome-hero-->
+			<!--welcome-hero end -->
+
+			<!--list-topics start -->
+			<section id="list-topics" class="list-topics">
+				<div class="container">
+					<div class="list-topics-content">
+						<ul>
+							<li>
+								<div class="single-list-topics-content">
+									<div class="single-list-topics-icon">
+										<i class="flaticon-restaurant"></i>
+									</div>
+									<h2><a href="#"><br>어라? 혹시 남 일 같지 않나요? 진짜요?</a></h2>
 								</div>
-								<div class="single-blog-item-txt">
-									<h2><a href="#">3개년 마일리지 컷 실시간 제공. </a></h2>
-									<h4>연세포털 뒤적거리지 말고, 그냥 마우스 커서 한 번 스윽 올려봐요.</h4>
+							</li>
+						</ul>
+					</div>
+				</div><!--/.container-->
+
+			</section><!--/.list-topics-->
+			<!--list-topics end-->
+
+			<!--works start -->
+			<section id="works" class="works">
+				<div class="container">
+					<div class="section-header">
+						<h2><br><br><br>
+							그런 당신을 위해 준비했습니다!</h2>
+						<p>에브리타임을 능가할 신개념 시간표 서비스!</p>
+					</div><!--/.section-header-->
+					<div class="works-content">
+						<div class="row">
+							<div class="col-md-4 col-sm-6">
+								<div class="single-how-works">
+									<div class="single-how-works-icon">
+										<i class="flaticon-lightbulb-idea"></i>
+									</div>
+									<h2><a href="#">일확천금 토토왕</a></h2>
 									<p>
-										강의실 인원을 자동 반영하여 최적의 마일리지를 추천해줘요. 
+										마일리지 컷, 다 띄워줄게요. <br> 강의실 정원까지 보여주면 더 좋겠죠?
 									</p>
+									<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
+										연세포탈 완벽 연동
+									</button>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-6 col-sm-6">
-							<div class="single-blog-item">
-								<div class="single-blog-item-img">
-									<img src="assets/images/blog/b2.jpg" alt="blog image">
-								</div>
-								<div class="single-blog-item-txt">
-									<h2><a href="#">헬강 경고도 필수적이죠.</a></h2>
-									<h4>에타 강의평 뒤적거리지 말고, 그냥 속는 셈 치고 한 번 담아 봐요.</h4>
+							<div class="col-md-4 col-sm-6">
+								<div class="single-how-works">
+									<div class="single-how-works-icon">
+										<i class="flaticon-networking"></i>
+									</div>
+									<h2><a href="#">꿀강 다 내꺼</span></a></h2>
 									<p>
-										"여러분"이 설정한 기준에 따라 헬강인지 아닌지 띄워드릴게요.
+										꿀강을 찾아담고, 헬강에 고통받는 친구들을 <br>마구마구 놀려줘요. 
 									</p>
+									<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
+										에브리타임 강의평 완벽 연동
+									</button>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6">
+								<div class="single-how-works">
+									<div class="single-how-works-icon">
+										<i class="flaticon-location-on-road"></i>
+									</div>
+									<h2><a href="#">자고로 양반은 뛰지 않는 법</a></h2>
+									<p>
+										수업 끝나자마자 뛰지 마세요. <br>
+										건물 간 이동 시간까지 알려줄게요.
+									</p>
+									<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
+										카카오맵 완벽 연동
+									</button>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-6 col-sm-6">
-							<div class="single-blog-item">
-								<div class="single-blog-item-img">
-									<img src="assets/images/blog/b3.jpg" alt="blog image">
-								</div>
-								<div class="single-blog-item-txt">
-									<h2><a href="#">아 꿀강 마렵다.</a></h2>
-									<h4>"여러분"의 선호도에 따라 최고 꿀강들만 추천할게요.</h4>
-									<p>
-										이에 더해, 남은 마일리지에 맞는 수업을 추천하는 기능도 들어갈 예정이에요.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 col-sm-6">
-							<div class="single-blog-item">
-								<div class="single-blog-item-img">
-									<img src="assets/images/blog/b4.jpg" alt="blog image">
-								</div>
-								<div class="single-blog-item-txt">
-									<h2><a href="#">뛰는 건 운동장에서만.</a></h2>
-									<h4>건물 간 평균적인 이동시간도 보여드릴게요.</h4>
-									<p>
-										카카오맵의 거리에 따른 도보 시간을 기준으로 해요. 오차가 있을 수는 있어요.
-									</p>
-								</div>
-							</div>
-						</div>					
-					</div>
-					<div class="row">
-						<div class="col-md-6 col-sm-6">
-							<div class="single-blog-item">
-								<div class="single-blog-item-img">
-									<img src="assets/images/blog/b5.jpg" alt="blog image">
-								</div>
-								<div class="single-blog-item-txt">
-									<h2><a href="#">야, 공강도 내놔.</a></h2>
-									<h4>물론이죠. 공강이길 원하시는 요일 고르기만 하세요. (2개 이하)</h4>
-									<p>
-										나머지는 싹 다 저희에게 맡기세요. 실시간 맞춤 서비스.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><!--/.container-->
+				</div><!--/.container-->
 			
-		</section><!--/.blog-->
-		<!--blog end -->
+			</section><!--/.works-->
+			<!--works end -->	
 
-		<!-- statistics strat -->
-		<section id="statistics"  class="statistics">
-			<div class="container">
-				<div class="statistics-counter"> 
-					<div class="col-md-3 col-sm-6">
-						<div class="single-ststistics-box">
-							<div class="statistics-content">
-								<div class="counter">20 </div> k+</span>
-							</div><!--/.statistics-content-->
-							<h3>명이 동시 이용 가능</h3>
-						</div><!--/.single-ststistics-box-->
-					</div><!--/.col-->
-					<div class="col-md-3 col-sm-6">
-						<div class="single-ststistics-box">
-							<div class="statistics-content">
-								<div class="counter">40</div> <span>k+</span>
-							</div><!--/.statistics-content-->
-							<h3>개의 수강평 확보</h3>
-						</div><!--/.single-ststistics-box-->				
-					</div><!--/.col-->
-					<div class="col-md-3 col-sm-6">
-						<div class="single-ststistics-box">
-							<div class="statistics-content">
-								<div class="counter">6</div>
-							</div><!--/.statistics-content-->
-							<h3>곳의 학교 지원</h3>
-						</div><!--/.single-ststistics-box-->
-					</div><!--/.col-->
-					<div class="col-md-3 col-sm-6">
-						<div class="single-ststistics-box">
-							<div class="statistics-content">
-								<div class="counter">10</div>
-							</div><!--/.statistics-content-->
-							<h3>분이 서비스 기대중</h3>
-						</div><!--/.single-ststistics-box-->
-					</div><!--/.col-->
-				</div><!--/.statistics-counter-->	
-			</div><!--/.container-->
-
-		</section><!--/.counter-->	
-		<!-- statistics end -->
-
-		<!--explore start -->
-		<section id="explore" class="explore">
-			<div class="container">
-				<div class="section-header">
-					<h2>앗, 나 빼고 다 알고 있었어?</h2>
-					<p>수많은 사람들이 이미 이 서비스를 기대하고 있습니다.</p>
-				</div><!--/.section-header-->
-				<div class="explore-content">
-					<div class="row">
-						<div class=" col-md-4 col-sm-6">
-							<div class="single-explore-item">
-								<div class="single-explore-img">
-									<img src="assets/images/explore/e1.jpg" alt="explore image">
-									<div class="single-explore-img-info">
-										<div class="single-explore-image-icon-box">
-											<ul>
-												<li>
-													<div class="single-explore-image-icon">
-														<i class="fa fa-arrows-alt"></i>
-													</div>
-												</li>
-												<li>
-													<div class="single-explore-image-icon">
-														<i class="fa fa-bookmark-o"></i>
-													</div>
-												</li>
-											</ul>
-										</div>
+			<!--blog start -->
+			<section id="blog" class="blog" >
+				<div class="container">
+					<div class="section-header">
+						<h2>어떤 기능이 있는지 궁금하시죠?</h2>
+						<p>직관적인 UI. 무한한 편리함.  <br>
+						(예시 이미지)</p>
+					</div><!--/.section-header-->
+					<div class="blog-content">
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								<div class="single-blog-item">
+									<div class="single-blog-item-img">
+										<img src="assets/images/blog/b1.jpg" alt="blog image">
+									</div>
+									<div class="single-blog-item-txt">
+										<h2><a href="#">3개년 마일리지 컷 실시간 제공. </a></h2>
+										<h4>연세포털 뒤적거리지 말고, 그냥 마우스 커서 한 번 스윽 올려봐요.</h4>
+										<p>
+											강의실 인원을 자동 반영하여 최적의 마일리지를 추천해줘요. 
+										</p>
 									</div>
 								</div>
-								<div class="single-explore-txt bg-theme-1">
-									<h2><a href="#">Elon Musk (TESLA)</a></h2>
-									<p class="explore-rating-price">
-										<span class="explore-rating">5.0</span>
-										 <a href="#">펜실베니아 대학교</a>
-									</p>
-									<div class="explore-person">
-										<div class="row">
-											<div class="col-sm-2">
-												<div class="explore-person-img">
-													<a href="#">
-														<img src="assets/images/explore/elon.jpg" alt="explore person">
-													</a>
-												</div>
-											</div>
-											<div class="col-sm-10">
-												<p>
-													이 서비스가 있었으면 진작에 화성 갔을텐데 아쉽군요!
-												</p>
-											</div>
-										</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-blog-item">
+									<div class="single-blog-item-img">
+										<img src="assets/images/blog/b2.jpg" alt="blog image">
+									</div>
+									<div class="single-blog-item-txt">
+										<h2><a href="#">헬강 경고도 필수적이죠.</a></h2>
+										<h4>에타 강의평 뒤적거리지 말고, 그냥 속는 셈 치고 한 번 담아 봐요.</h4>
+										<p>
+											"여러분"이 설정한 기준에 따라 헬강인지 아닌지 띄워드릴게요.
+										</p>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-6">
-							<div class="single-explore-item">
-								<div class="single-explore-img">
-									<img src="assets/images/explore/e2.jpg" alt="explore image">
-									<div class="single-explore-img-info">
-										<div class="single-explore-image-icon-box">
-											<ul>
-												<li>
-													<div class="single-explore-image-icon">
-														<i class="fa fa-arrows-alt"></i>
-													</div>
-												</li>
-												<li>
-													<div class="single-explore-image-icon">
-														<i class="fa fa-bookmark-o"></i>
-													</div>
-												</li>
-											</ul>
-										</div>
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								<div class="single-blog-item">
+									<div class="single-blog-item-img">
+										<img src="assets/images/blog/b3.jpg" alt="blog image">
 									</div>
-								</div>
-								<div class="single-explore-txt bg-theme-1">
-									<h2><a href="#">Bill Gates (Microsoft)</a></h2>
-									<p class="explore-rating-price">
-										<span class="explore-rating">4.98</span>
-										 <a href="#">고졸</a>
-									</p>
-									<div class="explore-person">
-										<div class="row">
-											<div class="col-sm-2">
-												<div class="explore-person-img">
-													<a href="#">
-														<img src="assets/images/explore/gates.jpg" alt="explore person">
-													</a>
-												</div>
-											</div>
-											<div class="col-sm-10">
-												<p>
-													아 빨리 만들지.. 시간표 때문에 자퇴했는데
-												</p>
-											</div>
-										</div>
-									</div>								
+									<div class="single-blog-item-txt">
+										<h2><a href="#">아 꿀강 마렵다.</a></h2>
+										<h4>"여러분"의 선호도에 따라 최고 꿀강들만 추천할게요.</h4>
+										<p>
+											이에 더해, 남은 마일리지에 맞는 수업을 추천하는 기능도 들어갈 예정이에요.
+										</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<div class="single-explore-item">
-								<div class="single-explore-img">
-									<img src="assets/images/explore/e3.jpg" alt="explore image">
-									<div class="single-explore-img-info">
-										<div class="single-explore-image-icon-box">
-											<ul>
-												<li>
-													<div class="single-explore-image-icon">
-														<i class="fa fa-arrows-alt"></i>
-													</div>
-												</li>
-												<li>
-													<div class="single-explore-image-icon">
-														<i class="fa fa-bookmark-o"></i>
-													</div>
-												</li>
-											</ul>
-										</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-blog-item">
+									<div class="single-blog-item-img">
+										<img src="assets/images/blog/b4.jpg" alt="blog image">
+									</div>
+									<div class="single-blog-item-txt">
+										<h2><a href="#">뛰는 건 운동장에서만.</a></h2>
+										<h4>건물 간 평균적인 이동시간도 보여드릴게요.</h4>
+										<p>
+											카카오맵의 거리에 따른 도보 시간을 기준으로 해요. 오차가 있을 수는 있어요.
+										</p>
 									</div>
 								</div>
-								<div class="single-explore-txt bg-theme-1">
-									<h2><a href="#">손웅정 (손웅정 축구교실)</a></h2>
-									<p class="explore-rating-price">
-										<span class="explore-rating">5.0</span>
-										 <a href="#">명지대학교</a>
-									</p>
-									<div class="explore-person">
-										<div class="row">
-											<div class="col-sm-2">
-												<div class="explore-person-img">
-													<a href="#">
-														<img src="assets/images/explore/son.jpg" alt="explore person">
-													</a>
-												</div>
-											</div>
-											<div class="col-sm-10">
-												<p>
-													말씀 중에 죄송합니다. 우리 서비스 절대 월클 맞습니다.
-												</p>
-											</div>
-										</div>
+							</div>					
+						</div>
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								<div class="single-blog-item">
+									<div class="single-blog-item-img">
+										<img src="assets/images/blog/b5.jpg" alt="blog image">
+									</div>
+									<div class="single-blog-item-txt">
+										<h2><a href="#">야, 공강도 내놔.</a></h2>
+										<h4>물론이죠. 공강이길 원하시는 요일 고르기만 하세요. (2개 이하)</h4>
+										<p>
+											나머지는 싹 다 저희에게 맡기세요. 실시간 맞춤 서비스.
+										</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>	
-			</div><!--/.container-->
+				</div><!--/.container-->
+				
+			</section><!--/.blog-->
+			<!--blog end -->
+
+			<!-- statistics strat -->
+			<section id="statistics"  class="statistics">
+				<div class="container">
+					<div class="statistics-counter"> 
+						<div class="col-md-3 col-sm-6">
+							<div class="single-ststistics-box">
+								<div class="statistics-content">
+									<div class="counter">20 </div> k+</span>
+								</div><!--/.statistics-content-->
+								<h3>명이 동시 이용 가능</h3>
+							</div><!--/.single-ststistics-box-->
+						</div><!--/.col-->
+						<div class="col-md-3 col-sm-6">
+							<div class="single-ststistics-box">
+								<div class="statistics-content">
+									<div class="counter">40</div> <span>k+</span>
+								</div><!--/.statistics-content-->
+								<h3>개의 수강평 확보</h3>
+							</div><!--/.single-ststistics-box-->				
+						</div><!--/.col-->
+						<div class="col-md-3 col-sm-6">
+							<div class="single-ststistics-box">
+								<div class="statistics-content">
+									<div class="counter">6</div>
+								</div><!--/.statistics-content-->
+								<h3>곳의 학교 지원</h3>
+							</div><!--/.single-ststistics-box-->
+						</div><!--/.col-->
+						<div class="col-md-3 col-sm-6">
+							<div class="single-ststistics-box">
+								<div class="statistics-content">
+									<div class="counter">10</div>
+								</div><!--/.statistics-content-->
+								<h3>분이 서비스 기대중</h3>
+							</div><!--/.single-ststistics-box-->
+						</div><!--/.col-->
+					</div><!--/.statistics-counter-->	
+				</div><!--/.container-->
+
+			</section><!--/.counter-->	
+			<!-- statistics end -->
+
+			<!--explore start -->
+			<section id="explore" class="explore">
+				<div class="container">
+					<div class="section-header">
+						<h2>앗, 나 빼고 다 알고 있었어?</h2>
+						<p>수많은 사람들이 이미 이 서비스를 기대하고 있습니다.</p>
+					</div><!--/.section-header-->
+					<div class="explore-content">
+						<div class="row">
+							<div class=" col-md-4 col-sm-6">
+								<div class="single-explore-item">
+									<div class="single-explore-img">
+										<img src="assets/images/explore/e1.jpg" alt="explore image">
+										<div class="single-explore-img-info">
+											<div class="single-explore-image-icon-box">
+												<ul>
+													<li>
+														<div class="single-explore-image-icon">
+															<i class="fa fa-arrows-alt"></i>
+														</div>
+													</li>
+													<li>
+														<div class="single-explore-image-icon">
+															<i class="fa fa-bookmark-o"></i>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="single-explore-txt bg-theme-1">
+										<h2><a href="#">Elon Musk (TESLA)</a></h2>
+										<p class="explore-rating-price">
+											<span class="explore-rating">5.0</span>
+											<a href="#">펜실베니아 대학교</a>
+										</p>
+										<div class="explore-person">
+											<div class="row">
+												<div class="col-sm-2">
+													<div class="explore-person-img">
+														<a href="#">
+															<img src="assets/images/explore/elon.jpg" alt="explore person">
+														</a>
+													</div>
+												</div>
+												<div class="col-sm-10">
+													<p>
+														이 서비스가 있었으면 진작에 화성 갔을텐데 아쉽군요!
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6">
+								<div class="single-explore-item">
+									<div class="single-explore-img">
+										<img src="assets/images/explore/e2.jpg" alt="explore image">
+										<div class="single-explore-img-info">
+											<div class="single-explore-image-icon-box">
+												<ul>
+													<li>
+														<div class="single-explore-image-icon">
+															<i class="fa fa-arrows-alt"></i>
+														</div>
+													</li>
+													<li>
+														<div class="single-explore-image-icon">
+															<i class="fa fa-bookmark-o"></i>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="single-explore-txt bg-theme-1">
+										<h2><a href="#">Bill Gates (Microsoft)</a></h2>
+										<p class="explore-rating-price">
+											<span class="explore-rating">4.98</span>
+											<a href="#">고졸</a>
+										</p>
+										<div class="explore-person">
+											<div class="row">
+												<div class="col-sm-2">
+													<div class="explore-person-img">
+														<a href="#">
+															<img src="assets/images/explore/gates.jpg" alt="explore person">
+														</a>
+													</div>
+												</div>
+												<div class="col-sm-10">
+													<p>
+														아 빨리 만들지.. 시간표 때문에 자퇴했는데
+													</p>
+												</div>
+											</div>
+										</div>								
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6">
+								<div class="single-explore-item">
+									<div class="single-explore-img">
+										<img src="assets/images/explore/e3.jpg" alt="explore image">
+										<div class="single-explore-img-info">
+											<div class="single-explore-image-icon-box">
+												<ul>
+													<li>
+														<div class="single-explore-image-icon">
+															<i class="fa fa-arrows-alt"></i>
+														</div>
+													</li>
+													<li>
+														<div class="single-explore-image-icon">
+															<i class="fa fa-bookmark-o"></i>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="single-explore-txt bg-theme-1">
+										<h2><a href="#">손웅정 (손웅정 축구교실)</a></h2>
+										<p class="explore-rating-price">
+											<span class="explore-rating">5.0</span>
+											<a href="#">명지대학교</a>
+										</p>
+										<div class="explore-person">
+											<div class="row">
+												<div class="col-sm-2">
+													<div class="explore-person-img">
+														<a href="#">
+															<img src="assets/images/explore/son.jpg" alt="explore person">
+														</a>
+													</div>
+												</div>
+												<div class="col-sm-10">
+													<p>
+														말씀 중에 죄송합니다. 우리 서비스 절대 월클 맞습니다.
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div><!--/.container-->
+			</section><!--/.explore-->
+
 			<div class="section-header">
 				<h2> <br><br><br>
 					'시간표 도와줄게유'는 학생들을 위한 대체 불가능한 최고의 무료 서비스입니다.</h2>
 				<h2>여러분 학교 생활의 질을 높이고자 노력하겠습니다.</h2>
 			</div><!--/.section-header-->	
-		</section><!--/.explore-->
-		<!--explore end -->
 
-		<!--subscription strat -->
-		<section id="contact"  class="subscription">
-			<div class="container">
-				
-				<div class="subscribe-title text-center">
-					<h2>
-						이제 여러분도 관심이 생기셨나요?
-					</h2>
-					<p>
-						이메일을 남겨주시면 서비스가 런칭되었을 때 메일로 알려드릴게요.<br><br>
-					</p>
-				<center>
-					<input id="submit-email" type="email" placeholder="ex) abc@gmail.com" /> <br>
-					<p>서비스의 방향성에 대해서도 조언해주세요!<br> <br></p>
-					<textarea id="submit-advice" name="Text1" cols="80" rows="5" placeholder="ex) 음식이 친절하고 사장님이 맛있어요."></textarea><br>
-					<button style="width:400px;" id="submit"><< 의견 제출 버튼 >> </button>
-				</center>
+		<!--explore end -->
+		</article>
+
+		<!--==================================================================================================================-->
+		<!--나의 시간표-->
+		<article id="my_time_table" class="content-section" style="display:none;">미완. 기대해주세요.</article>
+		</article>
+
+		<!--==================================================================================================================-->
+		<!--시간표 짜기-->
+		<article id="write_time_table" class="content-section" style="display:none;">
+			<!-- 로그인 파트 -->
+			
+			<!-- <form id="login-form" action="https://everytime.kr/" method="POST" class="custom-form"> -->
+				<!--<h2>개인정보 꿀꺽~~</h2> <br><br>
+				<h2>Yonsei Portal Login</h2>
+				<input id="login-id" class="custom-id" type="id" name="id" placeholder="2022XXXXXXXX" required /><br>
+				<input id="login-password" class="custom-password" type="password" name="password" placeholder="Password" required /><br>
+				<button type="submit" class="custom-button">로그인</button>
+			</form>
+
+			<script>
+			$(document).ready(function() {
+				$('#login-form').on('submit', function(event) {
+					event.preventDefault(); // Prevent the default form submission
+			
+					var id = $('#login-id').val();
+					var password = $('#login-password').val();
+			
+					// Send the login data to the server
+					$.ajax({
+						data: {
+							id,
+							password: password
+						},
+						url: 'https://account.everytime.kr/login', // Change this URL to the appropriate endpoint
+						type: 'POST',
+						success: function(response) {
+							// Check the response to see if the login was successful
+							if (response.success) { // Adjust this check based on the actual response
+								$('#login-message').text('Login successful');
+								$('#login-message').css('color', 'green');
+							} else {
+								$('#login-message').text('Invalid ID or password');
+							}
+						},
+						error: function() {
+							$('#login-message').text('An error occurred. Please try again.');
+						}
+					});
+				});
+			});-->
+			</script>
+			
+			<!-- 로그인 파트 끝-->
+			<div class="section-header">
+				<img src="assets/images/added/danaka_1.png" class="custom-image">
+				<br><br><h2>오죠사마, It's time to make 시간표.</h2> <br>
+				<img src="assets/images/added/danaka_2.png" alt="Descriptive Alt Text" class="custom-image">
+				<br><br><h2>또 시간표 미루는거예요?</h2> <br>
+				<img src="assets/images/added/danaka_3.png" alt="Descriptive Alt Text" class="custom-image">
+				<br><br><h2>지금 만들지 않으면, 우린 춤을 출 거예요.</h2> <br>
+				<img src="assets/images/added/danaka_4.png" alt="Descriptive Alt Text" class="custom-image">
+				<br><br><h2>야레야레, 못말리는 아가씨.</h2> <br>
 			</div>
-		<center>
-			<button id="API-BUTTON">이것은 테스트입니다.</button>
-			<p id="API-RESULT">이곳은 응답입니다.</p>
-		</center>
+			<div class="section-header">
+				<h2>오죠사마, 어떤 시간표를 원하시나요?</h2>
+			</div>
+			<!-- 복수선택 설문? -->
+			<section class="content">
+				<form id="survey-form" class="question-container">
+					<div class="question" id="department-question">
+						<br><h3>당신의 소속 대학은?</h3>
+						<div class="dropdown">
+							<button type="button" class="dropbtn" id="department-button">학부를 선택하세요</button>
+							<div class="dropdown-content">
+								<a href="#" onclick="selectDepartment(event, '인공지능융합대학')">인공지능융합대학</a>
+								<a href="#" onclick="selectDepartment(event, '공과대학')">공과대학</a>
+								<a href="#" onclick="selectDepartment(event, '문과대학')">문과대학</a>
+								<a href="#" onclick="selectDepartment(event, '상경대학')">상경대학</a>
+								<a href="#" onclick="selectDepartment(event, '경영대학')">경영대학</a>
+								<a href="#" onclick="selectDepartment(event, '이과대학')">이과대학</a>
+								<a href="#" onclick="selectDepartment(event, '생명시스템대학')">생명시스템대학</a>
+								<a href="#" onclick="selectDepartment(event, '신과대학')">신과대학</a>
+								<a href="#" onclick="selectDepartment(event, '사회과학대학')">사회과학대학</a>
+								<a href="#" onclick="selectDepartment(event, '음악대학')">음악대학</a>
+								<a href="#" onclick="selectDepartment(event, '교육과학대학')">교육과학대학</a>
+								<a href="#" onclick="selectDepartment(event, '생활과학대학')">생활과학대학</a>
+								<a href="#" onclick="selectDepartment(event, 'Underwood')">Underwood</a>
+								<a href="#" onclick="selectDepartment(event, '글로벌인재대학')">글로벌인재대학</a>
+								<a href="#" onclick="selectDepartment(event, '의과대학')">의과대학</a>
+								<a href="#" onclick="selectDepartment(event, '약학대학')">약학대학</a>
+								<a href="#" onclick="selectDepartment(event, '간호대학')">간호대학</a>
+								<a href="#" onclick="selectDepartment(event, '치과대학')">치과대학</a>
+							</div>
+						</div>
+						<input type="hidden" id="department" name="department">
+					</div>
+					<br>
+					<div class="question" id="major-question">
+						<h3>당신의 전공은?</h3><br>
+						<div class="dropdown">
+							<button type="button" class="dropbtn" id="major-button">전공을 선택하세요</button>
+							<div class="dropdown-content" id="major-dropdown-content">
+							</div>
+						</div>
+						<input type="hidden" id="major" name="major">
+					</div>
+					<br>
+					<div class="section-header">
+						<h2>오죠사마, 어떤 시간표를 원하시나요?</h2>
+					</div>
+					<div class="question">
+						<br><h3>최고의 공강 요일은? (2개 이하 중복선택)</h3><br>
+						<div class="button-container">
+							<button type="button" class="custom-button" data-question="question1" data-answer="Mon">월</button>
+							<button type="button" class="custom-button" data-question="question1" data-answer="Tue">화</button>
+							<button type="button" class="custom-button" data-question="question1" data-answer="Wed">수</button>
+							<button type="button" class="custom-button" data-question="question1" data-answer="Thu">목</button>
+							<button type="button" class="custom-button" data-question="question1" data-answer="Fri">금</button>
+							<button type="button" class="custom-button" data-question="question1" data-answer="None">상관없음</button>
+						</div>
+					</div>
+					<br><br>
+					<div class="question">
+						<h3>팀플 빈도 vs 과제 양 vs 학점, 당신의 꿀강 우선순위는?</h3><br>
+						<div class="button-container">
+							<button type="button" class="custom-button" data-question="question2" data-answer="teamplay">팀플이 적어야지.</button>
+							<button type="button" class="custom-button" data-question="question2" data-answer="assignment">과제가 적어야지.</button>
+							<button type="button" class="custom-button" data-question="question2" data-answer="grade">학점을 뿌려야지.</button>
+						</div>
+					</div>
+					<br><br>
+					<div class="question">
+						<h3>당신의 최대 마일리지는?</h3><br>
+						<div class="button-container centered-container">
+							<input type="text" class="custom-input" id="mileage" placeholder="최대 수강학점 * 4" />
+						</div>
+					</div>
+					<br><br>
+					<button type="submit" class="custom-button">스따또!</button>
+				</form>
+				<div id="submit-message"></div>
+			</section>
+			
+			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+			<script>
+				const majors = {
+					"인공지능융합대학": ["인공지능학과", "컴퓨터과학과", "IT융합공학과"],
+					"공과대학": ["전기전자공학과", "신소재공학과", "건설환경공학과", "도시공학과", "건축공학과", "화공생명공학과", "산업공학과", "시스템반도체공학과", "디스플레이융합공학과"],
+					"문과대학": ["국어국문학", "영어영문학", "역사학"],
+					"상경대학": ["경제학", "통계학"],
+					"경영대학": ["경영학", "국제경영학"],
+					"이과대학": ["수학", "물리학", "화학"],
+					"생명시스템대학": ["생명과학", "시스템생명공학"],
+					"신과대학": ["신학", "종교학"],
+					"사회과학대학": ["사회학", "정치외교학"],
+					"음악대학": ["음악학", "성악과"],
+					"교육과학대학": ["교육학", "상담심리학"],
+					"생활과학대학": ["생활과학", "식품영양학"],
+					"Underwood": ["국제학", "문화인류학"],
+					"글로벌인재대학": ["글로벌경영", "국제법학"],
+					"의과대학": ["의학", "간호학"],
+					"약학대학": ["약학", "제약학"],
+					"간호대학": ["간호학"],
+					"치과대학": ["치의학"]
+				};
+			
+				function selectDepartment(event, department) {
+					event.preventDefault();
+					$('#department').val(department);
+					$('#department-button').text(department);
+					$('#major-button').text('전공을 선택하세요');
+					const majorDropdownContent = $('#major-dropdown-content');
+					majorDropdownContent.empty();
+					majors[department].forEach(function(major) {
+						majorDropdownContent.append('<a href="#" onclick="selectMajor(event, \'' + major + '\')">' + major + '</a>');
+					});
+				}
+			
+				function selectMajor(event, major) {
+					event.preventDefault();
+					$('#major').val(major);
+					$('#major-button').text(major);
+				}
+			
+				$(document).ready(function() {
+					var selections = {
+						question1: [],
+						question2: []
+					};
+			
+					$('.custom-button').on('click', function () {
+						var question = $(this).data('question');
+						var answer = $(this).data('answer');
+						if (!question) return;
+			
+						var index = selections[question].indexOf(answer);
+			
+						if (index > -1) {
+							// Remove selection if already selected
+							selections[question].splice(index, 1);
+							$(this).removeClass('selected');
+						} else {
+							// Add selection
+							if (question === "question1" && selections[question].length >= 2) return; // Limit to 2 selections
+							selections[question].push(answer);
+							$(this).addClass('selected');
+						}
+					});
+			
+					$('#survey-form').on('submit', function(event) {
+						event.preventDefault();
+						const formData = {
+							department: $('#department').val(),
+							major: $('#major').val(),
+							bestDays: selections.question1,
+							priority: selections.question2[0],
+							mileage: $('#mileage').val()
+						};
+						console.log(formData);
+						// Send formData to your server or handle it as needed
+					});
+				});
+			</script>
+			
+						
+
+		<!--학점 계산기-->
+		<article id="gpa_calculator" class="content-section" style="display:none;">미완. 기대해주세요.</article>
+
+		<!--나의 졸업요건-->
+		<article id="to_graduate" class="content-section" style="display:none;">미완. 기대해주세요.</article>
+
+		<!--여러분의 목소리-->
+		<article id="advise" class="content-section" style="display:none;">
+		<!--subscription start -->
+			<section id="contact"  class="subscription">
+				<div class="container">
+					<div class="container">
+						<div class="subscribe-title text-center">
+							<h2>
+								더 나은 서비스를 위한 목소리를 기다리고 있습니다.
+							</h2>
+							<p>
+								신속/정확/완벽. 24시간 상주하는 공돌이가 빠르게 고쳐드릴게요.<br><br>
+							</p>
+						<center>
+							<p>어떤 점이 불편하셨나요? 여기에 솔직하게 다 까봐요.<br> <br></p>
+							<textarea id="submit-advice" class="custom-textarea" name="Text1" cols="80" rows="5" placeholder="ex) 10점 만점에 5점입니다. 오점이 없기 때문에.."></textarea><br>
+							<button class="custom-button" id="submit">의견 제출!</button>
+						</center>
+					</div>
+		</article>
+		
+
+		
 
 		</section><!--/subscription-->	
 		<!--subscription end -->
@@ -577,7 +843,8 @@
 					<div class="row">
 						<div class="col-sm-5">
 							<p>
-								&copy;copyright. designed and developed by Kyungseo Kwon (Template by listrace)</a>
+								Designed and developed by Kyungseo Kwon <br>
+								(Template by Listrace&copy;)</a>
 							</p><!--/p-->
 						</div>
 					</div>
