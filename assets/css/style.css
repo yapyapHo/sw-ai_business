@@ -1039,7 +1039,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     100%  {bottom:7px;}
 }
 
-/* login part*/
+/* 시간표 짜는 파트 */
 
 .custom-form {
     max-width: 400px;
@@ -1190,8 +1190,16 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     display: block;
 }
 .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    background-color: #f48530;
 }
+
+.dropdown-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
 .dropbtn {
     background-color: #ff545a;
     color: white;
@@ -1203,5 +1211,50 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 .dropbtn:hover {
     background-color: #f43032;
 }
+
+/* 시간표 자체 */
+.custom-input {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+}
+
+/* Table Styles */
+#table-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.table-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#curriculum-table {
+    width: auto;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#curriculum-table th, #curriculum-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    width: 100px;
+}
+#curriculum-table th {
+    background-color: #f48530;
+    color: white;
+}
+#curriculum-table td {
+    min-width: 150px;
+    height: 100px;
+    background-color: white;
+}
+
 
 /*========================Thank you=================
