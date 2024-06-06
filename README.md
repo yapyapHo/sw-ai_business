@@ -1,2 +1,4 @@
-# sw-ai_business
-# class
+# 시간표 도와줄게유 서비스 소개
+
+#
+#
