@@ -826,7 +826,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 
 .custom-button {
     display: inline-block;
-    font-size: 14px;
+    font-size: 15px;
     color: #fff;
     background: #ff545a;
     text-transform: capitalize;
@@ -847,7 +847,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     max-width: 400px; /* Smaller width than the textarea */
     height: auto;
     padding: 10px;
-    font-size: 16px;
+    font-size: 15px;
     color: #a5adb3;
     background: #fff;
     border: 1px solid #d3d6d9;
@@ -894,6 +894,10 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 .custom-button:hover {
     background: #f43032;
     box-shadow: 0 5px 10px rgba(71, 71, 71, 0.4);
+}
+
+.custom-button.selected {
+    background: #f48530;
 }
 
 /*appsLand-btn*/
@@ -1109,33 +1113,6 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     margin-bottom: 20px;
 }
 
-.custom-button {
-    width: 30%;
-    padding: 15px;
-    font-size: 14px;
-    color: #fff;
-    background: #ff545a;
-    text-transform: capitalize;
-    border-radius: 3px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    -webkit-transition: 0.3s linear;
-    -moz-transition: 0.3s linear;
-    -ms-transition: 0.3s linear;
-    -o-transition: 0.3s linear;
-    transition: 0.3s linear;
-    margin: 0 3px;
-}
-.custom-button.selected {
-    background: #f48530;
-}
-
-.custom-button:hover {
-    background: #f43032;
-    box-shadow: 0 5px 10px rgba(71, 71, 71, 0.4);
-}
-
 #submit-message {
     text-align: center;
     margin-top: 20px;
@@ -1149,13 +1126,14 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 }
 
 .custom-input {
-    width: 30%;
+    width: 20%;
     padding: 10px;
     margin-top: 10px;
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
+    max-width: 300px;
 }
 
 .centered-container {
@@ -1186,6 +1164,20 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
+
+/* Grid specific styles for course dropdown */
+#course-content {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 5 columns grid */
+    gap: 10px;
+}
+
+#course-dropdown-content {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 5 columns grid */
+    gap: 10px;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -1225,13 +1217,15 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 #table-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
+    width: 100%;
 }
 
 .table-wrapper {
     display: flex;
     justify-content: center;
-    width: 100%;
+    max-width: 100%;
 }
 
 #curriculum-table {
@@ -1241,7 +1235,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 }
 
 #curriculum-table th, #curriculum-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #717171;
     padding: 8px;
     text-align: center;
     width: 100px;
@@ -1256,5 +1250,46 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     background-color: white;
 }
 
+.course-option {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.course-option.selected {
+    background-color: #f48530;
+}
+.course-option span {
+    margin-bottom: 5px;
+}
+
+.select-button {
+    width: 10%;
+    padding: 15px;
+    font-size: 15px;
+    color: #fff;
+    background: #ff545a;
+    text-transform: capitalize;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    -webkit-transition: 0.3s linear;
+    -moz-transition: 0.3s linear;
+    -ms-transition: 0.3s linear;
+    -o-transition: 0.3s linear;
+    transition: 0.3s linear;
+    margin: 0 3px;
+}
+.select-button.selected {
+    background: #f48530;
+}
+
+.select-button:hover {
+    background: #f43032;
+    box-shadow: 0 5px 10px rgba(71, 71, 71, 0.4);
+}
 
 /*========================Thank you=================

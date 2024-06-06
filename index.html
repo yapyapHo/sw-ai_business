@@ -479,40 +479,21 @@
                         <input type="hidden" id="major" name="major">
                     </div>
                     <br>
-                    <div class="section-header">
-                        <h2>오죠사마, 어떤 시간표를 원하시나요?</h2>
-                    </div>
-                    <div class="question">
-                        <br><h3>최고의 공강 요일은? (2개 이하 중복선택)</h3><br>
-                        <div class="button-container">
-                            <button type="button" class="custom-button" data-question="question1" data-answer="Mon">월</button>
-                            <button type="button" class="custom-button" data-question="question1" data-answer="Tue">화</button>
-                            <button type="button" class="custom-button" data-question="question1" data-answer="Wed">수</button>
-                            <button type="button" class="custom-button" data-question="question1" data-answer="Thu">목</button>
-                            <button type="button" class="custom-button" data-question="question1" data-answer="Fri">금</button>
-                            <button type="button" class="custom-button" data-question="question1" data-answer="None">상관없음</button>
-                        </div>
-                    </div>
-                    <br><br>
-                    <div class="question">
-                        <h3>팀플 빈도 vs 과제 양 vs 학점, 당신의 꿀강 우선순위는?</h3><br>
-                        <div class="button-container">
-                            <button type="button" class="custom-button" data-question="question2" data-answer="teamplay">팀플이 적어야지.</button>
-                            <button type="button" class="custom-button" data-question="question2" data-answer="assignment">과제가 적어야지.</button>
-                            <button type="button" class="custom-button" data-question="question2" data-answer="grade">학점을 뿌려야지.</button>
-                        </div>
-                    </div>
-                    <br><br>
-                    <div class="question">
-                        <h3>당신의 최대 마일리지는?</h3>
-                        <div class="button-container centered-container">
-                            <input type="text" class="custom-input" id="mileage" placeholder="최대 수강학점 * 4" />
-                        </div>
-                    </div>
-                    <button type="submit" class="custom-button" id="start-button">과목 선택하러 가기</button>
+                    <h3>틀린 부분 없죠?</h3><br>
+                    <button type="submit" class="custom-button" id="start-button">전공과목 선택하러 가기</button>
                 </form>
-                <div id="submit-message"></div>
-                <div id="table-container" style="display: none;">
+                    <div id="submit-message"></div>
+                
+                    <div id="table-container" style="display: none;">
+                    <div class="section-header">
+                        <br><h2>먼저, 꼭 들어야 하는 전공을 담아주세요.</h2><br>
+                    </div>
+                    <div class="dropdown" style="display: flex; justify-content: center;">
+                        <button type="button" class="dropbtn" id="course-button"></button>
+                        <div class="dropdown-content" id="course-content">
+                        </div>
+                    </div>
+                    <br>
                     <div class="table-wrapper">
                         <table id="curriculum-table" border="1">
                             <thead>
@@ -527,16 +508,69 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Timeslot rows will be generated dynamically -->
                             </tbody>
                         </table>
                     </div>
+                
+                    <form id="survey-form" class="question-container">
+                        <div class="section-header">
+                            <h2>오죠사마, 그대의 취향이 궁금하오.</h2>
+                        </div>
+                        <div class="question">
+                            <br><h3>최고의 공강 요일은? (2개 이하 중복선택)</h3><br>
+                            <h3>이미 공강이 안 되신다면, 상관없음을 눌러주세요.</h3><br>
+                            <div class="button-container">
+                                <button type="button" class="custom-button" data-question="question1" data-answer="월">월</button>
+                                <button type="button" class="custom-button" data-question="question1" data-answer="화">화</button>
+                                <button type="button" class="custom-button" data-question="question1" data-answer="수">수</button>
+                                <button type="button" class="custom-button" data-question="question1" data-answer="목">목</button>
+                                <button type="button" class="custom-button" data-question="question1" data-answer="금">금</button>
+                                <button type="button" class="custom-button" data-question="question1" data-answer="None">상관없음</button>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="question">
+                            <h3>팀플 빈도 vs 과제 양 vs 학점, 당신의 꿀강 우선순위는?</h3><br>
+                            <div class="button-container">
+                                <button type="button" class="custom-button" data-question="question2" data-answer="teamplay">팀플이 적어야지.</button>
+                                <button type="button" class="custom-button" data-question="question2" data-answer="assignment">과제가 적어야지.</button>
+                                <button type="button" class="custom-button" data-question="question2" data-answer="grade">학점을 뿌려야지.</button>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="question"> 
+                            <h3>당신의 최대 마일리지는?</h3>
+                            <div class="button-container centered-container">
+                                <input type="text" class="custom-input" id="mileage" placeholder="최대 수강학점 * 4" />
+                            </div>
+                        </div>
+                        <button type="submit" class="custom-button" id="add-courses-button">제 취향은 이렇습니다.</button>
+                    </form>
+
+                    <div id="submit-message"></div>
+
+                <div id="custom-section" style="display: none;">
+                    <div class="section-header">
+                        <br><h2>약속대로 공강이 되는 과목들로만 준비하겠습니다. </h2><br>
+                        <br><h2>골라보세요. - 권경서의 공강 오마카세 드림 -</h2><br>
+
+                    <div class="dropdown" style="display: flex; justify-content: center;">
+                        <button type="button" class="dropbtn" id="course-button-adding">그대만을 위한 공강 오마카세.</button><br>
+                        <div class="dropdown-content" id="course-dropdown-content">
+                        </div>
+                    </div>
+
+                    <div class="section-header">
+                        <br><br><h3>이미 전공 때문에 공강이 안 된다면, 조금 슬프네요.</h3> <br>
+                    </div>
+                    <div class="section-header">
+                        <br><br><h2>요죠사마, 마음에 드셨나요?</h2> <br>
+                        <img src="assets/images/added/danaka_5.png" alt="Descriptive Alt Text" class="custom-image">
+                        <br><br><h2>맘에 들지 않으면, 우린 춤을 출 거예요.</h2> <br>
+                    </div>
+                    </div>
                 </div>
-                <div class="section-header">
-                    <br><br><h2>요죠사마, 마음에 드셨나요?</h2> <br>
-                    <img src="assets/images/added/danaka_5.png" alt="Descriptive Alt Text" class="custom-image">
-                    <br><br><h2>맘에 들지 않으면, 우린 춤을 출 거예요.</h2> <br>
-                </div>
+                
             </section>
         </article>
         <article id="gpa_calculator" class="content-section" style="display:none;">미완. 기대해주세요.</article>
@@ -600,70 +634,318 @@
         <script src="assets/js/slick.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <script src="assets/js/custom.js"></script>
+        <script src="https://apis.google.com/js/api.js"></script>
         <script>
-            $(document).ready(function() {
-                $('#navbar-menu ul li a').click(function(event) {
-                    event.preventDefault();
-                    $('#navbar-menu ul li').removeClass('active');
-                    $(this).parent().addClass('active');
-                    var target = $(this).data('target');
-                    $('.content-section').hide();
-                    $(target).show();
-                    $('html, body').animate({ scrollTop: 0 }, 'fast');
-                });
+        // JavaScript and jQuery
+        $(document).ready(function () {
+            $('#navbar-menu ul li a').click(function (event) {
+                event.preventDefault();
+                $('#navbar-menu ul li').removeClass('active');
+                $(this).parent().addClass('active');
+                var target = $(this).data('target');
+                $('.content-section').hide();
+                $(target).show();
+                $('html, body').animate({ scrollTop: 0 }, 'fast');
             });
-            const majors = {
-                "인공지능융합대학": ["인공지능학과", "컴퓨터과학과", "IT융합공학과"],
-                "공과대학": ["전기전자공학과", "신소재공학과", "건설환경공학과", "도시공학과", "건축공학과", "화공생명공학과", "산업공학과", "시스템반도체공학과", "디스플레이융합공학과"],
-                "문과대학": ["국어국문학", "영어영문학", "역사학"],
-                "상경대학": ["경제학", "통계학"],
-                "경영대학": ["경영학", "국제경영학"],
-                "이과대학": ["수학", "물리학", "화학"],
-                "생명시스템대학": ["생명과학", "시스템생명공학"],
-                "신과대학": ["신학", "종교학"],
-                "사회과학대학": ["사회학", "정치외교학"],
-                "음악대학": ["음악학", "성악과"],
-                "교육과학대학": ["교육학", "상담심리학"],
-                "생활과학대학": ["생활과학", "식품영양학"],
-                "Underwood": ["국제학", "문화인류학"],
-                "글로벌인재대학": ["글로벌경영", "국제법학"],
-                "의과대학": ["의학", "간호학"],
-                "약학대학": ["약학", "제약학"],
-                "간호대학": ["간호학"],
-                "치과대학": ["치의학"]
-            };
-
-            function selectDepartment(event, department) {
+    
+            // Fix for the Uncaught TypeError in bootsnav.js
+            $('#navbar-menu ul li').on('click', function () {
+                var $this = $(this);
+                if ($this.offset() !== undefined && $this.offset().top !== undefined) {
+                    // Continue with the original logic of bootsnav.js
+                    $('html, body').animate({ scrollTop: $this.offset().top }, 500);
+                }
+            });
+        });
+    
+        const majors = {
+            "인공지능융합대학": ["인공지능학과", "컴퓨터과학과", "IT융합공학과"],
+            "공과대학": ["전기전자공학과", "신소재공학과", "건설환경공학과", "도시공학과", "건축공학과", "화공생명공학과", "산업공학과", "시스템반도체공학과", "디스플레이융합공학과"],
+            "문과대학": ["국어국문학", "영어영문학", "역사학"],
+            "상경대학": ["경제학", "통계학"],
+            "경영대학": ["경영학", "국제경영학"],
+            "이과대학": ["수학", "물리학", "화학"],
+            "생명시스템대학": ["생명과학", "시스템생명공학"],
+            "신과대학": ["신학", "종교학"],
+            "사회과학대학": ["사회학", "정치외교학"],
+            "음악대학": ["음악학", "성악과"],
+            "교육과학대학": ["교육학", "상담심리학"],
+            "생활과학대학": ["생활과학", "식품영양학"],
+            "Underwood": ["국제학", "문화인류학"],
+            "글로벌인재대학": ["글로벌경영", "국제법학"],
+            "의과대학": ["의학", "간호학"],
+            "약학대학": ["약학", "제약학"],
+            "간호대학": ["간호학"],
+            "치과대학": ["치의학"]
+        };
+    
+        const gids = {
+            "인공지능융합대학": "989906024",
+            "공과대학": "1485190145",
+            "문과대학": "116975898",
+            "상경대학": "1508285805",
+            "경영대학": "646759666",
+            "이과대학": "626392741",
+            "생명시스템대학": "346193210",
+            "신과대학": "2108965039",
+            "사회과학대학": "792949399",
+            "음악대학": "164458718",
+            "교육과학대학": "1842934757",
+            "생활과학대학": "2073072850",
+            "Underwood": "1636913368",
+            "글로벌인재대학": "1728102684",
+            "의과대학": "1183665773",
+            "약학대학": "751210241",
+            "간호대학": "1052700732",
+            "치과대학": "949225026",
+            "시간표채우기용": "234897968"
+        };
+    
+        // 유저 소속대학 선택
+        function selectDepartment(event, department) {
             event.preventDefault();
             $('#department').val(department);
             $('#department-button').text(department);
+            $('#course-button').text(department + ' 전공과목 목록');
             $('#major-button').text('전공을 선택하세요');
             const majorDropdownContent = $('#major-dropdown-content');
             majorDropdownContent.empty();
-            majors[department].forEach(function(major) {
+            majors[department].forEach(function (major) {
                 majorDropdownContent.append('<a href="#" onclick="selectMajor(event, \'' + major + '\')">' + major + '</a>');
             });
+    
+            // Fetch courses for the selected department
+            fetchCoursesForDepartment(department);
         }
-
+    
+        // 유저 전공 선택
         function selectMajor(event, major) {
             event.preventDefault();
             $('#major').val(major);
             $('#major-button').text(major);
         }
+    
+        // 전공과목 리스트 받아오는 용도
+        function fetchCoursesForDepartment(department) { // 소속 대학 선택하자마자 불러옴.
+            const sheetUrl = 'https://docs.google.com/spreadsheets/d/1_5wNnY6Adj-xNW8QCzaxmiRtRG0QIpYQgXRVMqLNB_k/gviz/tq?gid=' + gids[department];
+            fetch(sheetUrl)
+                .then(response => response.text())
+                .then(data => {
+                    const jsonData = JSON.parse(data.substr(47).slice(0, -2));
+                    const rows = jsonData.table.rows;
+                    const courses = rows.map(row => row.c.map(cell => (cell ? cell.v : '')));
+                    populateDropdownWithCourses(courses);
+                })
+                
+                .catch(error => console.error('Error fetching data:', error));
+        }
+        
+        function fetchCoursesForAdding() {
+            const sheetUrl = 'https://docs.google.com/spreadsheets/d/1_5wNnY6Adj-xNW8QCzaxmiRtRG0QIpYQgXRVMqLNB_k/gviz/tq?gid=' + gids["시간표채우기용"];
+            fetch(sheetUrl)
+                .then(response => response.text())
+                .then(data => {
+                    const jsonData = JSON.parse(data.substr(47).slice(0, -2));
+                    const rows = jsonData.table.rows;
+                    const courses = rows.map(row => row.c.map(cell => (cell ? cell.v : '')));
+                    filterAndPopulateDropdownWithCourses(courses);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
 
-        $(document).ready(function() {
-            var selections = {
-                question1: [],
-                question2: []
-            };
+        // 과목 리스트에서 선택 뒤 작동방식
+        function toggleCourseSelection(event, courseName, schedule, professor) {
+            event.preventDefault();
+            const courseElement = $(event.currentTarget);
+            if (courseElement.hasClass('selected')) {
+                courseElement.removeClass('selected');
+                removeCourseFromTable(courseName, schedule, professor);
+            } else {
+                if (!addCourseToTable(courseName, schedule, professor)) {
+                    return; // If course could not be added due to conflict, do not mark as selected
+                }
+                courseElement.addClass('selected');
+            }
+        }
+    
+        // 시간표 템플릿
+        function createTimeSlotsTable() {
+            const tableBody = document.querySelector('#curriculum-table tbody');
+            tableBody.innerHTML = ''; // Clear previous content
+    
+            for (let hour = 9; hour <= 18; hour++) {
+                const row = document.createElement('tr');
+                const timeCell = document.createElement('td');
+                timeCell.textContent = `${hour}:00 - ${hour}:50`;
+                row.appendChild(timeCell);
+    
+                for (let day = 1; day <= 6; day++) {
+                    const cell = document.createElement('td');
+                    cell.dataset.time = hour;
+                    cell.dataset.day = day;
+                    row.appendChild(cell);
+                }
+    
+                tableBody.appendChild(row);
+            }
+        }
+    
+        // 전공과목 리스트로 보여주기
+        function populateDropdownWithCourses(courses) {
+            const courseDropdownContent = $('#course-content');
+            courseDropdownContent.empty();
+    
+            courses.forEach(course => {
+                const courseOption = `
+                    <a href="#" class="course-option" onclick="toggleCourseSelection(event, '${course[1]}', '${course[3]}', '${course[6]}')">
+                        <div>
+                            <span>${course[1]}</span><br>
+                            <span>${course[2]}</span><br>
+                            <span>${course[6]}</span><br>
+                            <span>${course[3]}</span><br>
+                            <span>${course[4]}</span><br>
+                            <span>${course[7]} 마일리지</span><br>
+                        </div>
+                    </a>`;
+                // console.log(courseOption) -> 해당 전공에 대한 과목들을 sheet에서 한 번에 받아옴. -> 버튼에 보이기 위한 단계.
+                courseDropdownContent.append(courseOption);
+            });
+        }
 
+        // 과목 걸러서 띄우는 용도. 비는 시간으로만.
+        function filterAndPopulateDropdownWithCourses(courses) {
+            const selectedDaysOff = selections.question1; // Array of selected days off
+            const existingSchedules = getExistingSchedules(); // Function to get existing schedules
+            const daysMap = { "월": 1, "화": 2, "수": 3, "목": 4, "금": 5, "토": 6 };
+
+            const filteredCourses = courses.filter(course => {
+                const scheduleParts = course[3].split('/'); // 요일과 시간은 네 번째에 위치.
+                for (const part of scheduleParts) { // Ex) [화_2,3_공D504, 목_6_공A455]
+                    const [day, times, location] = part.split('_');
+                    if (selectedDaysOff.includes(day)) {
+                        return false; // Skip courses on the selected days off
+                    }
+                    const timeSlots = times.split(',');
+                    for (const timeSlot of timeSlots) {
+                        if (existingSchedules.includes(`${daysMap[day]}_${parseInt(timeSlot, 10) + 8}`)) {
+                            return false; // Skip courses that conflict with existing schedules
+                        }
+                    }
+                }
+                return true;
+            });
+            populateDropdownForAdding(filteredCourses);
+        }
+
+        // 추가할 과목 리스트로 보여주기
+        function populateDropdownForAdding(courses) {
+            const courseDropdownForAdding = $('#course-dropdown-content');
+            courseDropdownForAdding.empty();
+        
+            courses.forEach(course => {
+                const courseOption = `
+                    <a href="#" class="course-option" onclick="toggleCourseSelection(event, '${course[1]}', '${course[3]}', '${course[6]}')">
+                        <div>
+                            <span>${course[1]}</span><br>
+                            <span>${course[2]}</span><br>
+                            <span>${course[6]}</span><br>
+                            <span>${course[3]}</span><br>
+                            <span>${course[4]}</span><br>
+                            <span>${course[7]} 마일리지</span><br>
+                        </div>
+                    </a>`;
+                console.log(courseOption)
+                courseDropdownForAdding.append(courseOption);
+            });
+        }
+
+        // 이미 선택된 시간 제외하고 보여주기.
+        function getExistingSchedules() {
+            const existingSchedules = [];
+            document.querySelectorAll('#curriculum-table td').forEach(cell => {
+                if (cell.textContent.trim()) {
+                    const day = cell.getAttribute('data-day');
+                    const time = cell.getAttribute('data-time');
+                    existingSchedules.push(`${day}_${parseInt(time, 10)}`);
+                }
+            });
+            return existingSchedules;
+        }
+    
+        // 선택한 과목 시간표에 넣기.
+        function addCourseToTable(courseName, schedule, professor) {
+            const scheduleParts = schedule.split('/');
+            const daysMap = { "월": 1, "화": 2, "수": 3, "목": 4, "금": 5, "토": 6 };
+    
+            for (const part of scheduleParts) {
+                const [day, times, location] = part.split('_');
+                const dayIndex = daysMap[day];
+                const timeSlots = times.split(',');
+    
+                for (const timeSlot of timeSlots) {
+                    const cell = document.querySelector(`#curriculum-table td[data-time="${parseInt(timeSlot, 10) + 8}"][data-day="${parseInt(dayIndex, 10)}"]`);
+                    if (cell) {
+                        if (cell.textContent) {
+                            alert('시간표에 이미 다른 강좌가 있습니다.');
+                            return false;
+                        }
+    
+                        cell.innerHTML = `<div>${courseName}</div><div>${professor}</div>`;
+                        cell.style.backgroundColor = '#f48530';
+                        cell.style.color = 'white';
+                    }
+                }
+            }
+            return true;
+        }
+    
+        // 다시 선택하면 시간표에서 빼기.
+        function removeCourseFromTable(courseName, schedule, professor) {
+            const scheduleParts = schedule.split('/');
+            const daysMap = { "월": 1, "화": 2, "수": 3, "목": 4, "금": 5, "토": 6 };
+    
+            for (const part of scheduleParts) {
+                const [day, times] = part.split('_');
+                const dayIndex = daysMap[day];
+                const timeSlots = times.split(',');
+    
+                for (const timeSlot of timeSlots) {
+                    const cell = document.querySelector(`#curriculum-table td[data-time="${parseInt(timeSlot, 10) + 8}"][data-day="${parseInt(dayIndex, 10)}"]`);
+                    if (cell && cell.textContent.includes(courseName)) {
+                        cell.textContent = '';
+                        cell.style.backgroundColor = '';
+                    }
+                }
+            }
+        }
+
+        // 시간표 다시 띄워주는 용도.
+        function copyTableContents() {
+            const firstTable = document.querySelector('#curriculum-table');
+            const secondTable = document.querySelector('#curriculum-table-adding');
+            const firstTableCells = firstTable.querySelectorAll('tbody tr td');
+            const secondTableCells = secondTable.querySelectorAll('tbody tr td');
+    
+            secondTableCells.forEach((cell, index) => {
+                cell.innerHTML = firstTableCells[index].innerHTML;
+                cell.style.backgroundColor = firstTableCells[index].style.backgroundColor;
+                cell.style.color = firstTableCells[index].style.color;
+            });
+        } 
+
+        var selections = {
+            question1: [],
+            question2: []
+        };
+
+        $(document).ready(function () {
             $('.custom-button').on('click', function () {
                 var question = $(this).data('question');
                 var answer = $(this).data('answer');
                 if (!question) return;
-
+    
                 var index = selections[question].indexOf(answer);
-
+    
                 if (index > -1) {
                     selections[question].splice(index, 1);
                     $(this).removeClass('selected');
@@ -673,8 +955,8 @@
                     $(this).addClass('selected');
                 }
             });
-
-            $('#survey-form').on('submit', function(event) {
+    
+            $('#survey-form').on('submit', function (event) {
                 event.preventDefault();
                 const formData = {
                     department: $('#department').val(),
@@ -683,85 +965,204 @@
                     priority: selections.question2[0],
                     mileage: $('#mileage').val()
                 };
-                console.log(formData);
+            });
+    
+            $('#course-button').hover(
+                function () {
+                    $('#course-content').show();
+                },
+                function () {
+                    $('#course-content').hide();
+                },  
+            );
+            
+            $('#course-button-adding').hover(
+                function () {
+                    $('#course-dropdown-content').show();
+                },
+                function () {
+                    $('#course-dropdown-content').hide();
+                }
+            );
+            
+            $('#course-content').hover(
+                function () {
+                    $(this).show();
+                },
+                function () {
+                    $(this).hide();
+                }
+            );
+
+            $('#course-dropdown-content').hover(
+                function() {
+                    $(this).show();
+                },
+                function() {
+                    $(this).hide();
+                }
+            );
+
+    
+            document.getElementById('start-button').addEventListener('click', function (event) {
+                event.preventDefault();
+                document.getElementById('table-container').style.display = 'block';
+                createTimeSlotsTable();
+            });
+    
+            // 과목을 고르면 자기 자신과 겹친다고 간주해 목록에서 사라지니, fetchCoursesForAdding()를 한 번만 call하기 위함.
+            let coursesFetched = false;
+
+            document.getElementById('add-courses-button').addEventListener('click', function (event) {
+                if (!coursesFetched) {
+                    event.preventDefault();
+                    fetchCoursesForAdding();
+                    coursesFetched = true; // Set the flag to true after the function is called
+                    document.getElementById('custom-section').style.display = 'block';
+                }
+            });
+
+            document.getElementById('start').addEventListener('click', function (event) {
+                event.preventDefault();
+            });
+
+            document.getElementById('course-button-adding').addEventListener('click', function (event) {
+                event.preventDefault();
             });
         });
+        </script>
 
-        document.getElementById('start-button').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('table-container').style.display = 'block';
-            createTimeSlotsTable();
-            fetchCourses();
-        });
+            <!--DB 부분-->
+		    <script type="application/javascript">
+			var ip = "null";
+			function getIP(json) {
+				console.log(json);
+				try {
+				ip = json.ip;
+				} catch (e) {
+				ip = 'unknown';
+				}
+				return;
+			}
+			</script>
+			<script type="application/javascript" src="https://jsonip.com?format=jsonp&callback=getIP"></script>
 
-        function fetchCourses() {
-            const sheetUrl = 'https://docs.google.com/spreadsheets/d/1_5wNnY6Adj-xNW8QCzaxmiRtRG0QIpYQgXRVMqLNB_k/edit?usp=sharing';
-            const sheetName = 'YourDepartmentName';
+		    <script>
+			var mobile = 'desktop';
+				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+					// true for mobile device
+					mobile = 'mobile';
+				}
 
-            const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetUrl}/values/${sheetName}`;
+			var queryString = location.search;
+				const urlParams = new URLSearchParams(queryString);
+				const utm = urlParams.get("utm");
 
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    const rows = data.values;
-                    const courses = rows.slice(1);
-                    populateDropdowns(courses);
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }
+			// Sam pading value to start with 0. eg: 01, 02, .. 09, 10, ..
+			function padValue(value) {
+					return (value < 10) ? "0" + value : value;
+				}
 
-        function populateDropdowns(courses) {
-            const dropdownContainer = document.getElementById('dropdown-container');
-            dropdownContainer.innerHTML = '';
+				function getTimeStamp() {
+					const date = new Date();
 
-            courses.forEach(course => {
-                const [department, courseName, courseId, schedule, major, level, professor, mileage, teamProject, assignment, grade] = course;
-                const dropdown = document.createElement('select');
-                dropdown.className = 'course-dropdown';
-                dropdown.innerHTML = `<option value="${courseId}">${courseName}</option>`;
-                dropdown.addEventListener('change', () => addCourseToTable(course));
-                dropdownContainer.appendChild(dropdown);
-            });
-        }
+					const year = date.getFullYear();
+					const month = date.getMonth() + 1;
+					const day = date.getDate();
+					const hours = date.getHours();
+					const minutes = date.getMinutes();
+					const seconds = date.getSeconds();
 
-        function createTimeSlotsTable() {
-            const tableBody = document.querySelector('#curriculum-table tbody');
-            tableBody.innerHTML = ''; // Clear previous content
+					const formattedDate = `${padValue(year)}-${padValue(month)}-${padValue(day)} ${padValue(hours)}:${padValue(minutes)}:${padValue(seconds)}`;
 
-            // Assuming time slots are from 9 AM to 3 PM, creating 7 rows
-            for (let hour = 9; hour <= 18; hour++) {
-                const row = document.createElement('tr');
-                const timeCell = document.createElement('td');
-                timeCell.textContent = `${hour}:00 - ${hour}:50`;
-                row.appendChild(timeCell);
+					return formattedDate;
+				}
+		
+			// 쿠키에서 값을 가져오는 함수
+			function getCookieValue(name) {
+					const value = "; " + document.cookie;
+					const parts = value.split("; " + name + "=");
+					if (parts.length === 2) {
+						return parts.pop().split(";").shift();
+					}
+				}
 
-                for (let day = 0; day < 6; day++) { // 6 columns for days Mon to Sat
-                    const cell = document.createElement('td');
-                    cell.dataset.time = hour;
-                    cell.dataset.day = day;
-                    row.appendChild(cell);
-                }
+				// 쿠키에 값을 저장하는 함수
+				function setCookieValue(name, value, days) {
+					let expires = "";
+					if (days) {
+						const date = new Date();
+						date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+						expires = "; expires=" + date.toUTCString();
+					}
+					document.cookie = name + "=" + (value || "") + expires + "; path=/";
+				}
 
-                tableBody.appendChild(row);
-            }
-        }
+				function getUVfromCookie() {
+					// 6자리 임의의 문자열 생성
+					const hash = Math.random().toString(36).substring(2, 8).toUpperCase();
+					// 쿠키에서 기존 해시 값을 가져옴
+					const existingHash = getCookieValue("user");
+					// 기존 해시 값이 없으면, 새로운 해시 값을 쿠키에 저장
+					if (!existingHash) {
+						setCookieValue("user", hash, 180); // 쿠키 만료일은 6개월 
+						return hash;
+					} else {
+						// 기존 해시 값이 있으면, 기존 값을 반환
+						return existingHash;
+					}
+				}
 
-        function addCourseToTable(course) {
-            const [department, courseName, courseId, schedule, major, level, professor, mileage, teamProject, assignment, grade] = course;
-            const days = ['월', '화', '수', '목', '금', '토'];
+				/* 수정 data -> id:getUVfromCookie() */
+		
+			/* data를 만들 땐 모든 field가 들어 있어야 함 */
+			var data = JSON.stringify(
+				{"id": getUVfromCookie(),
+				"landingUrl": window.location.href, 
+				"ip":ip, 
+				"referer":document.referrer,
+				"time_stamp":getTimeStamp(), 
+				"utm":utm,
+				"device":mobile}
+				);
 
-            const [day, time] = schedule.split(' ');
-            const [startHour, endHour] = time.split('-').map(Number);
-            const dayIndex = days.indexOf(day);
+				$(document).ready(function () {
 
-            for (let hour = startHour; hour < endHour; hour++) {
-                const cell = document.querySelector(`#curriculum-table td[data-time="${hour}"][data-day="${dayIndex}"]`);
-                if (cell) {
-                    cell.textContent = courseName;
-                    cell.style.backgroundColor = 'lightblue';
-                }
-            }
-        }
+					axios.get('https://script.google.com/macros/s/AKfycbzmBGfQrYGajwzdLbzIbhlD_OecSIf21cc_bMJm4KTvzwgHFWkhJR3OeLH1arlsCxAvGw/exec?action=insert&table=db&data=' + data)
+					.then(response => {
+					console.log(response.data.data);
+					})
+				
+				});
+
+				$("#submit").on("click", function () {
+					const email = $("#submit-email").val();
+					const advice = $("#submit-advice").val();
+		    
+					function validateEmail(email) {
+					    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+					    return re.test(email);
+					}
+		    
+					if (email == '' || !validateEmail(email)) {
+					    alert("이메일이 유효하지 않아 알림을 드릴 수가 없습니다. ");
+					    return;
+					}
+		    
+					var finalData = JSON.stringify({
+					    "id": getUVfromCookie(),
+					    "email": email,
+					    "advice": advice
+					})
+					axios.get('https://script.google.com/macros/s/AKfycbzmBGfQrYGajwzdLbzIbhlD_OecSIf21cc_bMJm4KTvzwgHFWkhJR3OeLH1arlsCxAvGw/exec?action=insert&table=tab_final&data=' + finalData)
+					    .then(response => {
+						console.log(response.data.data);
+						alert("감사합니다. 후딱 수정하겠습니다.");
+						$('#submit-email').val('');
+						$('#submit-advice').val('');
+					    })
+				    });
+                </script>
         </script>
     </body>
 </html>
