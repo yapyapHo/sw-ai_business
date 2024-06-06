@@ -249,9 +249,9 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     position: relative;
     background:url(../images/welcome-hero/banner.jpg)no-repeat;
     background-position:center;
-    background-size:cover;
+    background-size: contain;
     text-align: center;
-    height:800px;
+    height:700px;
     z-index: 1;
 }
 .welcome-hero:before{
